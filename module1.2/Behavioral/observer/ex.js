@@ -1,4 +1,6 @@
-
+/* 
+  * Allows notifications of changes happening in a component. 
+*/
 class Game
 {
     constructor() {

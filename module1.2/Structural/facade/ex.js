@@ -1,3 +1,6 @@
+/* 
+  * It provides a simple interface over a set of multiple systems/interfaces.
+*/
 class Generator
 {
   generate(count)

@@ -1,3 +1,6 @@
+/* 
+  * Allows non-intrusive addition of functionality to hierarchies.
+*/
 class Integer
 {
   constructor(value)

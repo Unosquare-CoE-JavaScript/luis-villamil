@@ -1,3 +1,6 @@
+/* 
+  * It's a technique to save memory by supporting a very large numbers of similar objects.
+*/
 class Sentence
 {
   constructor(plainText)

@@ -18,6 +18,10 @@ class Memento
   }
 }
 
+/* 
+  * Yields tokents that represent the system state.
+  * The tokens do not allow direct manipulation but it's possible to implement a roll back.
+*/
 class TokenMachine
 {
   constructor()

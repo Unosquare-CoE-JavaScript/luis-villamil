@@ -1,3 +1,7 @@
+/*
+  * Is the idea of creating an object from an existing object.
+  * It requires an explicit deep copy or a copy through serialization.
+*/
 class Point
 {
   constructor(x, y)

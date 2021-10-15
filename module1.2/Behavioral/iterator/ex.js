@@ -1,3 +1,7 @@
+/* 
+  * Provides an interface for accessing elements of an aggregate object.
+  * It's possible to make the class iterable as well.
+*/
 class Node
 {
   constructor(value, left=null, right=null)

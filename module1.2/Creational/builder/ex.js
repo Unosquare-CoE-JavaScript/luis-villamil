@@ -1,3 +1,8 @@
+/* 
+    * Helps separate the constructions of other objects when they get too complicated (perform several steps).
+    * We can also create multiple sub-builders that cooperate.
+    * Tipically have a fluent interface which mean we can chain multiple methods into a single statement. 
+*/
 class Code {
     constructor(className = '') {
         this.className = className;

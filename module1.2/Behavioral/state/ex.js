@@ -1,3 +1,7 @@
+/*
+  * We model a system by having one of multiple possible states and transitions between these states.
+  * Such system is called a state machine.
+*/
 class CombinationLock
 {
   constructor(combination)

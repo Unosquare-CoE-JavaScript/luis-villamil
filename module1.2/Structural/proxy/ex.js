@@ -1,3 +1,7 @@
+/* 
+  * Provide a surrogate object that forwards calls to the real object while performing additional functions,
+  for example: access control, communications, logging, etc.
+*/
 class Person
 {
   constructor(age=0)

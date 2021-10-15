@@ -1,3 +1,6 @@
+/* 
+  * Converts the external interface into an interface compatible with the system.
+*/
 class Square
 {
   constructor(side)

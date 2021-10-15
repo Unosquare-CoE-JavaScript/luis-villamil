@@ -1,4 +1,6 @@
-
+/* 
+  * Allows several components to process certain events in a chain, and each elevent in the chain can refer to the next element. 
+*/
 class Query
 {
   constructor(creatureName, whatToQuery, value)

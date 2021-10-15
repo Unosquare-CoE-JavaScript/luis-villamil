@@ -1,3 +1,7 @@
+/* 
+  * It encapsulates a request into a separte object and then send that object somewhere. 
+  * Good for auditing, replay, undo/redo.
+*/
 let Action = Object.freeze({
     deposit: 0,
     withdraw: 1

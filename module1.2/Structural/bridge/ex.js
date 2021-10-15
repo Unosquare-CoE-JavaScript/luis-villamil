@@ -1,3 +1,6 @@
+/* 
+  * It helps decouple abstraction from implementation, it allows to avoid complexity explotion of having too many classes. 
+*/ 
 class Shape
 {
   constructor(name, renderer)

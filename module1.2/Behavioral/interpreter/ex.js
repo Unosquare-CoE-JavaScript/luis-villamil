@@ -1,3 +1,7 @@
+/* 
+    * Transforms textual input into object oriented structures.
+    * Used by interpreters, compilers, static analys tools, etc.
+*/
 class ExpressionProcessor
 {
   constructor(variables)

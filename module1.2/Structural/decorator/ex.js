@@ -1,3 +1,7 @@
+/* 
+  * It attaches addtional reponsibilities to objects without modifying those objects or inheriting from them.
+  * They are generally composable with each other.
+*/
 class Bird
 {
   constructor(age=0)

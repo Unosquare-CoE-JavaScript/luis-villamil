@@ -1,3 +1,7 @@
+/* 
+  * It defines a skeleton algorithm with details filled in by implementor.
+  * It's uses inheritance.
+*/
 class Creature
 {
   constructor(attack, health)

@@ -1,3 +1,6 @@
+/* 
+  * Provides mediation services between two objects, e.g, message passing, chat rooms, etc...
+*/
 class Mediator
 {
   constructor() {

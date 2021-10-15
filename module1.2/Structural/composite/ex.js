@@ -1,3 +1,6 @@
+/* 
+  * Allows clients to trear individual objects and compositions of objects uniformly
+*/
 class SingleValue
 {
   constructor(value)
