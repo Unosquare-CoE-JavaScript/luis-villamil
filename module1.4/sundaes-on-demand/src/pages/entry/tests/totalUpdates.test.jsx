@@ -54,7 +54,9 @@ test("update toppings subtotal when toppings changes", async () => {
 
 describe("grand total", () => {
   test("grand total updates properly if scoop is added first", async () => {
-    render(<OrderEntry />, { wrapper: OrderDetailsProvider });
+    render(<OrderEntry setOrderPhase={jest.fn()} />, {
+      wrapper: OrderDetailsProvider,
+    });
 
     const grandTotal = screen.getByText("Grand total: $", {
       exact: false,
@@ -76,7 +78,9 @@ describe("grand total", () => {
     expect(grandTotal).toHaveTextContent("3.50");
   });
   test("grand total updates properly if topping is added first", async () => {
-    render(<OrderEntry />, { wrapper: OrderDetailsProvider });
+    render(<OrderEntry setOrderPhase={jest.fn()} />, {
+      wrapper: OrderDetailsProvider,
+    });
 
     const cherrieBox = await screen.findByRole("checkbox", {
       name: "Cherries",
@@ -96,7 +100,9 @@ describe("grand total", () => {
     expect(grandTotal).toHaveTextContent("3.50");
   });
   test("grand total updates properly if item is removed", async () => {
-    render(<OrderEntry />, { wrapper: OrderDetailsProvider });
+    render(<OrderEntry setOrderPhase={jest.fn()} />, {
+      wrapper: OrderDetailsProvider,
+    });
 
     const cherrieBox = await screen.findByRole("checkbox", {
       name: "Cherries",
