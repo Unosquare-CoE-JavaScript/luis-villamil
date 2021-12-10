@@ -3,49 +3,52 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import SummaryForm from "../SummaryForm";
+import userEvent from "@testing-library/user-event";
 
-test("checkbox is unchecked by default", () => {
+test("Initial conditions", () => {
   render(<SummaryForm />);
   const checkbox = screen.getByRole("checkbox", {
-    name: "I agree to Terms and Conditions",
+    name: /terms and conditions/i,
   });
   expect(checkbox).not.toBeChecked();
+
+  const confirmButton = screen.getByRole("button", { name: /confirm order/i });
+  expect(confirmButton).toBeDisabled();
 });
 
-test("checking checkbox enables button", () => {
+test("Checkbox enables button on first click and disables on second click", () => {
   render(<SummaryForm />);
   const checkbox = screen.getByRole("checkbox", {
-    name: "I agree to Terms and Conditions",
+    name: /terms and conditions/i,
   });
-  const button = screen.getByRole("button", {
-    name: "Confirm order",
-  });
-  expect(button).toBeDisabled();
+  const confirmButton = screen.getByRole("button", { name: /confirm order/i });
 
   userEvent.click(checkbox);
+  expect(confirmButton).toBeEnabled();
 
-  expect(button).toBeEnabled();
+  userEvent.click(checkbox);
+  expect(confirmButton).toBeDisabled();
 });
 
 test("popover responds to hover", async () => {
   render(<SummaryForm />);
+
   // popover starts out hidden
   const nullPopover = screen.queryByText(
     /no ice cream will actually be delivered/i
   );
   expect(nullPopover).not.toBeInTheDocument();
 
-  // popover appers upon mouseover of checkbox label
+  // popover appears upon mouseover of checkbox label
   const termsAndConditions = screen.getByText(/terms and conditions/i);
   userEvent.hover(termsAndConditions);
 
   const popover = screen.getByText(/no ice cream will actually be delivered/i);
   expect(popover).toBeInTheDocument();
+
   // popover disappears when we mouse out
   userEvent.unhover(termsAndConditions);
-
   await waitForElementToBeRemoved(() =>
     screen.queryByText(/no ice cream will actually be delivered/i)
   );
