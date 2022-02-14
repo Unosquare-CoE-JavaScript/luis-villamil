@@ -1,5 +1,9 @@
+import { ErrorBoundary } from 'react-error-boundary';
 import { AccountDetails } from './AccountDetails';
 import { MovieDetails } from './MovieDetails';
+import { ErrorFallback } from "../ErrorFallback";
+import { Loading } from "../../components/Loading";
+import { Suspense, SuspenseList } from 'react';
 
 interface Props {
   userId: number;
@@ -8,10 +12,20 @@ interface Props {
 export function UserDetails({ userId, movieId }: Props) {
   return (
     <div>
-      <h4 className="text-center mt-5">User details</h4>
-      <AccountDetails userId={userId} />
-      <h4 className="text-center mt-5">Favorite movie</h4>
-      <MovieDetails movieId={movieId} />
+        <h4 className="text-center mt-5">User details</h4>
+        {/* <SuspenseList revealOrder="together"> */}
+          {/* <Suspense fallback={<Loading />}> */}
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+              <AccountDetails userId={userId} />
+            </ErrorBoundary>
+          {/* </Suspense> */}
+          <h4 className="text-center mt-5">Favorite movie</h4>
+          {/* <Suspense fallback={<Loading />}> */}
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+              <MovieDetails movieId={movieId} />
+            </ErrorBoundary>
+          {/* </Suspense> */}
+      {/* </SuspenseList> */}
     </div>
   );
 }
