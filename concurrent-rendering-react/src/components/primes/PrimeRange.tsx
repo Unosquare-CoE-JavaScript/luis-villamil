@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useDeferredValue } from 'react';
 import { roundUp } from '../../utils/roundUp';
 import classes from './PrimeRange.module.css';
 
@@ -18,7 +18,12 @@ export function PrimeRange({ defaultValue, onChange }: Props) {
       }
     }
   });
+  const defferedMaxPrimeRange = useDeferredValue(maxPrimeRange);
 
+  useEffect(() => {
+    onChange(defferedMaxPrimeRange);
+  }, [defferedMaxPrimeRange, onChange]);
+  console.log(maxPrimeRange, defferedMaxPrimeRange)
   return (
     <div className="row input-group g-2">
       <input
@@ -28,7 +33,6 @@ export function PrimeRange({ defaultValue, onChange }: Props) {
         max={maxPrime}
         onChange={(e) => {
           setMaxPrimeRange(+e.target.value);
-          onChange(+e.target.value);
         }}
       />
       <select
